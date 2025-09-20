@@ -16,17 +16,19 @@ int main(){
       long long z = max(y , x);
       long long ans;
 
-      if(z % 2 == 0){
+      long long z_start = (z - 1) * (z - 1);
+
+      if(z % 2 == 1){  // odds
          if(y == z){
-           ans = (z-1) * (long long)(z - 1) + x;
+           ans = z_start + x;
          } else {
-           ans = z * z - y + 1;
+           ans = z_start + 2 * z - y;
          }
-      } else {
+      } else {   // even
          if(x == z){
-           ans = (z-1) * (long long)(z - 1) + y;
+           ans = z_start + y;
          } else {
-           ans = z * z - x + 1;
+           ans = z_start + 2 * z - x;
          }
       }
 
